@@ -1,15 +1,9 @@
 const express = require('express');
-const mongoose = require('mongoose');
 
 const router = require('./router')
 
 const app = express();
 const port = 3000;
-
-// Connect to your MongoDB database
-mongoose.connect('mongodb://localhost/velvetkumo', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.error(err));
 
 app.use('/', router)
 
