@@ -13,11 +13,13 @@ router.get('/', async (req, res) => {
 });
 
 // Create a new inventory item
-router.post('/', async (req, res) => {
+router.post('/inventory', async (req, res) => {
+    const { name, quantity, location } = req.body;
+
     const inventory = new Inventory({
-        name: req.body.name,
-        quantity: req.body.quantity,
-        location: req.body.location
+        name,
+        quantity,
+        location
     });
 
     try {
