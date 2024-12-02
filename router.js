@@ -41,4 +41,20 @@ router.get('/etsy/ping', async (req, res) => {
     }
 });
 
+router.get('/etsy/listing', async (req, res) => {
+    try {
+        const fs = require('fs');
+        const path = require('path');
+        
+        const listingPath = path.join(__dirname, 'samples', 'listing.json');
+        const listing = JSON.parse(fs.readFileSync(listingPath, 'utf8'));
+        
+        res.json(listing);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
+
 module.exports = router;
