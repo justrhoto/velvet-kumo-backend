@@ -32,6 +32,7 @@ router.post('/inventory', async (req, res) => {
     }
 });
 
+// Test Etsy API connection with a ping
 router.get('/etsy/ping', async (req, res) => {
     try {
         const response = await Etsy.pingEtsy();
@@ -41,6 +42,7 @@ router.get('/etsy/ping', async (req, res) => {
     }
 });
 
+// Return sample listing data
 router.get('/etsy/listing', async (req, res) => {
     try {
         const fs = require('fs');
@@ -54,7 +56,6 @@ router.get('/etsy/listing', async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
-
 
 
 module.exports = router;
